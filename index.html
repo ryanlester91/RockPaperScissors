@@ -7,6 +7,26 @@
   <link rel="stylesheet" type="text/css" src="./style.css">
 </head>
 
+<style>
+header {
+    background-color: white;
+    text-align: center;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+.score-board {
+    border: 5px solid orange;
+}
+
+#move {
+    border: 5px solid orange;
+}
+</style>
+
 <body>
 <header>
     <h1><a href="https://fontmeme.com/super-smash-bros-font/"><img src="https://fontmeme.com/permalink/190815/fcaf87ec95bd6eb7b0b11d529f51e24e.png" alt="super-smash-bros-font"></a></h1>
@@ -15,7 +35,7 @@
 <div class="score-board">
     <div id="user-label" class="badge">user</div>
     <div id="computer-label" class="badge">computer</div>
-    <span id="user-score">0</span>:<span id="user-score">0</span>
+    <span id="user-score">0</span>:<span id="computer-score">0</span>
 </div>
 
 <div>
@@ -33,16 +53,16 @@
 
   <div id="choices">
       <div id="choice">
-          <img>
+          <img id="move" src="images/rock-hand.png">
       </div>
       <div id="choice">
-            <img>
+            <img id="move" src="images/paper-hand.png">
         </div>
         <div id="choice">
-                <img>
+                <img id="move" src="images/scissors-hand.png">
             </div>
   </div>
-<script type="text/javascript" src = "./game.js"></script>
+<script type="text/javascript" src = "game.js"></script>
 </body>
 </html>
 
