@@ -5,7 +5,7 @@
     const userScore_span = document.getElementById("user-score");
     const computerScore_span = document.getElementById("user-score");
     const scoreBoard_div = document.querySelector(".score-board");
-    const result_div = document.querySelector(".result");
+    const result_p = document.querySelector(".result > p");
     
     const rock_div = document.getElementById("r");
     const scissors_div = document.getElementById("s");
@@ -17,25 +17,47 @@
     const randomNumber = Math.floor(Math.random() * 3);
     return choices[randomNumber];
     }
+
+    function convertToWord(letter) {
+        if(letter==="r") return "Rock";
+        if(letter==="p") return "Paper";
+        return "Scissors";
+
+    }
+
+    function win(userChoice, computerChoice) {
+        userScore++
+        userScore_span.innerHTML = userScore;
+        computerScore_span.innerHTML = computerScore;
+        result_p.innerHTML = convertToWord(userChoice) + "beats" + convertToWord(computerChoice) + ". You win! :fire"
+    }
+
+    function lose() {
+
+    }
+
+    function draw() {
+        console.log("DRAW! STALEMATE!");
+    }
     
     //switch/case function for user to make move choices
     function game(userChoice) {
-        const computerChoice = getComputerChoice();
+        let computerChoice = getComputerChoice();
         switch (userChoice + computerChoice) {
             case "rs":
             case "sp":
             case "pr":
-            console.log("YOU WIN!");
+            win(userChoice, computerChoice);
             break;
             case "ps":
             case "rp":
             case "sr":
-            console.log("YOU LOSE!");
+            lose(userChoice, computerChoice);
             break;		
             case "ss":
             case "rr":
             case "pp":
-            console.log("Draw.");
+            draw(userChoice, computerChoice);
             break;
         }
     }		
