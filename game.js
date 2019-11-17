@@ -1,7 +1,7 @@
 //document.ready(
     //initializing constants
-    const userScore = 0;
-    const computerScore = 0;
+    let userScore = 0;
+    let computerScore = 0;
     const userScore_span = document.getElementById("user-score");
     const computerScore_span = document.getElementById("user-score");
     const scoreBoard_div = document.querySelector(".score-board");
@@ -18,6 +18,12 @@
     return choices[randomNumber];
     }
 
+    function game(userChoice) {
+        const computerChoice = getComputerChoice();
+        console.log(computerChoice);
+        console.log("user choice => " + userChoice);
+    }
+
     function convertToWord(letter) {
         if(letter==="r") return "Rock";
         if(letter==="p") return "Paper";
@@ -29,15 +35,19 @@
         userScore++
         userScore_span.innerHTML = userScore;
         computerScore_span.innerHTML = computerScore;
-        result_p.innerHTML = convertToWord(userChoice) + "beats" + convertToWord(computerChoice) + ". You win! :fire"
+        result_p.innerHTML = convertToWord(userChoice) + " beats " + convertToWord(computerChoice) + ". You win!"
     }
 
-    function lose() {
-
+    function lose(userChoice, computerChoice) {
+        computerScore++
+        userScore_span.innerHTML = userScore;
+        computerScore_span.innerHTML = computerScore;
+        result_p.innerHTML = convertToWord(computerChoice) + " beats " + convertToWord(userChoice) + ". You lose!"
     }
 
-    function draw() {
+    function draw(userChoice, computerChoice) {
         console.log("DRAW! STALEMATE!");
+        result_p.innerHTML = convertToWord(userChoice) + " matches " + convertToWord(computerChoice) + ". Draw!"
     }
     
     //switch/case function for user to make move choices
